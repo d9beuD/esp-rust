@@ -1,0 +1,5 @@
+/toolchain/
+/tools/
+/target/
+/*.elf
+/*.o

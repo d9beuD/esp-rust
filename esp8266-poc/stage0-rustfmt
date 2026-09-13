@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+toolchain=nightly-2026-07-16
+if ! rustup run "$toolchain" rustfmt --version >/dev/null 2>&1; then
+    rustup toolchain install "$toolchain" --profile minimal --component rustfmt
+fi
+exec rustup run "$toolchain" rustfmt "$@"

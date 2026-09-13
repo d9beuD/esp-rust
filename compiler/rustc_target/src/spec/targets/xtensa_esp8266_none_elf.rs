@@ -1,4 +1,5 @@
-use crate::spec::{Arch, base::xtensa, Target, TargetOptions};
+use crate::spec::base::xtensa;
+use crate::spec::{Arch, Target, TargetOptions};
 
 pub(crate) fn target() -> Target {
     Target {

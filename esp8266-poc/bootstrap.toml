@@ -1,0 +1,7 @@
+change-id = "ignore"
+
+[llvm]
+download-ci-llvm = false
+ninja = false
+targets = "AArch64;Xtensa"
+experimental-targets = "Xtensa"

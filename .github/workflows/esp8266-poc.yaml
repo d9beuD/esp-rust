@@ -1,0 +1,15 @@
+name: ESP8266 POC
+on: [push, pull_request]
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install ESP8266 toolchain
+        shell: bash
+        run: |
+          if [[ "$RUNNER_OS" == Windows ]]; then pwsh ./esp-rust-build/install.ps1 v1.98.0.0; else bash ./esp-rust-build/install.sh v1.98.0.0; fi
+      - run: cd esp8266-poc && cargo build --release

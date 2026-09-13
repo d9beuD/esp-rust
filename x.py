@@ -45,6 +45,9 @@ if __name__ == "__main__":
         warnings.warn(msg, stacklevel=1)
 
     rust_dir = os.path.dirname(os.path.abspath(__file__))
+    tools_dir = os.path.join(rust_dir, "esp8266-poc", "tools", "bin")
+    if os.path.isdir(tools_dir):
+        os.environ["PATH"] = tools_dir + os.pathsep + os.environ["PATH"]
     # For the import below, have Python search in src/bootstrap first.
     sys.path.insert(0, os.path.join(rust_dir, "src", "bootstrap"))
 
